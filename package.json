@@ -1,0 +1,31 @@
+{
+  "name": "auth-flow",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "debug": "~2.6.3",
+    "dotenv": "^5.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "helmet": "^4.2.0",
+    "http-headers": "^3.0.2",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-openidconnect": "0.0.2",
+    "passport-saml": "^1.5.0",
+    "request": "^2.88.2",
+    "saml-encoder-decoder-js": "^1.0.1",
+    "saml2js": "^0.1.2",
+    "serve-favicon": "~2.4.2",
+    "util": "^0.12.3",
+    "xml2js": "^0.4.23",
+    "xml2json-light": "^1.0.6"
+  }
+}
