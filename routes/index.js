@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'OneLogin OpenId Connect Sample' });
+  res.render('index', { title: 'Salesforce SSO Login' });
 });
 
 module.exports = router;
