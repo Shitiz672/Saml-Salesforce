@@ -148,17 +148,14 @@ function checkAuthentication(req,res,next)
     req.samlUserObject = parser.toObject();
     console.log("OUTPUT - "+JSON.stringify(req.samlUserObject));
 		
-   request('http://boxinallsoftech.com/SSOLogin/WriteFile.php?data='+req.samlUserObject, function (error, response, body) 
+    request('http://boxinallsoftech.com/SSOLogin/WriteFile.php?data='+JSON.stringify(req.samlUserObject), function (error, response, body) 
     {
     if (!error && response.statusCode == 200) 
     {
       console.log("success");
-    //console.log(body) // Show the HTML for the Google homepage. 
+
     }
-    else
-    {
-        console.log("failure");
-    }
+   
   });
     	
     
