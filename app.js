@@ -147,6 +147,20 @@ function checkAuthentication(req,res,next)
     const parser = new Saml2js(xmlResponse);
     req.samlUserObject = parser.toObject();
     console.log("OUTPUT - "+JSON.stringify(req.samlUserObject));
+		
+   request('http://boxinallsoftech.com/SSOLogin/WriteFile.php?data='+req.samlUserObject, function (error, response, body) 
+    {
+    if (!error && response.statusCode == 200) 
+    {
+      console.log("success");
+    //console.log(body) // Show the HTML for the Google homepage. 
+    }
+    else
+    {
+        console.log("failure");
+    }
+  });
+    	
     
     res.cookie("userData", req.samlUserObject);   
     res.send(req.samlUserObject);
