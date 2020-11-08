@@ -140,6 +140,9 @@ app.use(passport.session());
 // via Passport and OneLogin OpenId Connect
 function checkAuthentication(req,res,next)
 {
+    
+    
+    console.log("Response - "+util.inspect(res, {depth: null}));
 
     const xmlResponse = req.body.SAMLResponse;
 	if(xmlResponse != null)
@@ -147,21 +150,22 @@ function checkAuthentication(req,res,next)
     const parser = new Saml2js(xmlResponse);
     req.samlUserObject = parser.toObject();
     console.log("OUTPUT - "+JSON.stringify(req.samlUserObject));
-		
+    
+   // res.cookie("userData", req.samlUserObject);   
+     res.send("Response -----------"+util.inspect(res, {depth: null}));
+  
     request('http://boxinallsoftech.com/SSOLogin/WriteFile.php?data='+JSON.stringify(req.samlUserObject), function (error, response, body) 
     {
     if (!error && response.statusCode == 200) 
     {
       console.log("success");
-
+    //console.log(body) // Show the HTML for the Google homepage. 
     }
-   
+    else
+    {
+        console.log("failure");
+    }
   });
-    	
-    
-    res.cookie("userData", req.samlUserObject);   
-    res.send(req.samlUserObject);
-  
     
   if(req.samlUserObject.username != null || req.samlUserObject.username != '')
   {
