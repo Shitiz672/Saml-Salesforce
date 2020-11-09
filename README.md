@@ -1,20 +1,5 @@
 # Salesforce SSO Login
 
-The sample is an [Express.js](https://expressjs.com/) app that uses
-[Passport.js](http://www.passportjs.org/) and the [Passport-OpenIdConnect](https://github.com/jaredhanson/passport-openidconnect)
-module for managing user authentication.
-
-The sample tries to keep everything as simple as possible so only
-implements
-* Login - redirecting users to OneLogin for authentication
-* Logout - destroying the local session and revoking the token at OneLogin
-* User Info - fetching profile information from OneLogin
-
-## Setup
-In order to run this sample you need to setup an OpenId Connect
-app in your OneLogin Admin portal.
-
-If you don't have a OneLogin developer account [you can sign up here](https://www.onelogin.com/developer-signup).
 
 Note: This sample uses the `POST` method for retrieving an `access_token`. Make sure you set the **Token Endpoint Authentication Method** in your OneLogin OIDC Application to **POST**.
 
